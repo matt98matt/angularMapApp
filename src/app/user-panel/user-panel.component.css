@@ -1,0 +1,51 @@
+div {
+  float: right;
+  width: 50%;
+  text-align: center;
+  padding-top: 10vh;
+  font-family: Helvetica, sans-serif;
+}
+
+div p {
+  display: block;
+  margin: 10px auto;
+  font-size: 24px;
+  font-weight: bold;
+  color: #571845;
+  text-transform: uppercase;
+}
+
+/* div section {
+  display: inline-block;
+  border-radius: 20%;
+  border: 2px solid #999;
+  width: 252px;
+  height: 30px;
+} */
+
+div input {
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+  height: 30px;
+  background-color: transparent;
+  border: #571845 solid 3px;
+  line-height: 38px;
+  font-size: 18px;
+  color: #571845;
+}
+
+div button {
+  margin: 0 auto;
+  margin-top: 10px;
+  display: block;
+  height: 38px;
+  background-color: #571845;
+  box-shadow: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #C70039;
+  border: none;
+  line-height: 30px;
+  cursor: pointer;
+}
