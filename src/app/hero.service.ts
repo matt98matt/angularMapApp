@@ -5,19 +5,19 @@ import { Subject } from 'rxjs';
 export class MissionService {
 
   // Observable string sources
-  private missionAnnouncedSource = new Subject<string>();
+  private idSource = new Subject<string>();
   private typeSource = new Subject<string>();
 
   // Observable string streams
-  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+  id$ = this.idSource.asObservable();
   type$ = this.typeSource.asObservable();
 
   // Service message commands
-  announceMission(mission: string) {
-    this.missionAnnouncedSource.next(mission);
+  returnId(placeId: string) {
+    this.idSource.next(placeId);
   }
 
-  returnType(astronaut: string) {
-    this.typeSource.next(astronaut);
+  returnType(placeType: string) {
+    this.typeSource.next(placeType);
   }
 }

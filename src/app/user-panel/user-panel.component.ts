@@ -14,7 +14,7 @@ export class UserPanelComponent {
 
 
   constructor(private missionService: MissionService) {
-    this.subscription = missionService.missionAnnounced$.subscribe(id => { this.id = id; });
+    this.subscription = missionService.id$.subscribe(id => { this.id = id; });
     this.subscription = missionService.type$.subscribe(type => { this.type = type; });
   }
 
@@ -33,7 +33,7 @@ export class UserPanelComponent {
     else {
       let name = document.getElementById(text).id;
       let type = document.getElementById(text).parentElement.id;
-      this.missionService.announceMission(name);
+      this.missionService.returnId(name);
       this.missionService.returnType(type);
       if (document.getElementById(text).children.length != 0) {
         for (let i = 0; i < document.getElementById(text).children.length; i++) {

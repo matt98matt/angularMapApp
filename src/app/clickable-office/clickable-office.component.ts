@@ -17,7 +17,7 @@ export class ClickableOfficeComponent {
   subscription: Subscription;
 
   constructor(private missionService: MissionService) {
-    this.subscription = missionService.missionAnnounced$.subscribe(id => { this.id = id; });
+    this.subscription = missionService.id$.subscribe(id => { this.id = id; });
     this.subscription = missionService.type$.subscribe(type => { this.type = type; });
   }
 
@@ -25,10 +25,15 @@ export class ClickableOfficeComponent {
   onClick(event: Event) {
     if (this.id != "id") {
       document.getElementById(this.id).setAttribute('class', 'st4');
+      if (document.getElementById(this.id).children.length != 0) {
+        for (let i = 0; i < document.getElementById(this.id).children.length; i++) {
+          document.getElementById(this.id).children.item(i).setAttribute('class', 'st4');
+        }
+      }
     }
     let name = event.srcElement.id;
     let type = event.srcElement.parentElement.id;
-    this.missionService.announceMission(name);
+    this.missionService.returnId(name);
     this.missionService.returnType(type);
     document.getElementById(name).setAttribute('class', 'shining');
     // event.srcElement.
