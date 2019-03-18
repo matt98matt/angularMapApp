@@ -14,7 +14,6 @@ export class UserPanelComponent {
 
 
   constructor(private missionService: MissionService) {
-    console.log('cos');
     this.subscription = missionService.missionAnnounced$.subscribe(id => { this.id = id; });
     this.subscription = missionService.type$.subscribe(type => { this.type = type; });
   }
