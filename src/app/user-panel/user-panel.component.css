@@ -8,7 +8,7 @@ div {
 
 div p {
   display: block;
-  margin: 10px auto;
+  margin: 15px auto;
   font-size: 24px;
   font-weight: bold;
   color: #571845;
@@ -36,8 +36,9 @@ div input {
 }
 
 div button {
+  box-sizing: border-box;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 15px;
   display: block;
   height: 38px;
   background-color: #571845;
@@ -48,4 +49,11 @@ div button {
   border: none;
   line-height: 30px;
   cursor: pointer;
+  transition: .3s;
+}
+
+div button:hover {
+  background-color: #C70039;
+  border: 2px solid #571845;
+  color: #571845;
 }

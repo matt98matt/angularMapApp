@@ -1,6 +1,6 @@
 <div>
-  <input type="text">
-  <button>Search</button>
+  <input #searchPlace type="text" (keyup.enter)="onClickSearch(searchPlace.value); searchPlace.value=''">
+  <button (click)="onClickSearch(searchPlace.value); searchPlace.value=''">Search</button>
   <p>{{id}}</p>
   <p>{{type}}</p>
 </div>

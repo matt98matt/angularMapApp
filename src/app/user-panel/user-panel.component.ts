@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent {
-  id = "none";
+  id = "id";
   type = "type";
   subscription: Subscription;
 
@@ -18,4 +18,35 @@ export class UserPanelComponent {
     this.subscription = missionService.type$.subscribe(type => { this.type = type; });
   }
 
+  onClickSearch(text) {
+    if (this.id != "id") {
+      document.getElementById(this.id).setAttribute('class', 'st4');
+      if (document.getElementById(this.id).children.length != 0) {
+        for (let i = 0; i < document.getElementById(this.id).children.length; i++) {
+          document.getElementById(this.id).children.item(i).setAttribute('class', 'st4');
+        }
+      }
+    }
+    if (document.getElementById(text) == null) {
+      console.log("zle id");
+    }
+    else {
+      let name = document.getElementById(text).id;
+      let type = document.getElementById(text).parentElement.id;
+      this.missionService.announceMission(name);
+      this.missionService.returnType(type);
+      if (document.getElementById(text).children.length != 0) {
+        for (let i = 0; i < document.getElementById(text).children.length; i++) {
+          document.getElementById(text).children.item(i).setAttribute('class', 'shining');
+        }
+      }
+      else {
+        document.getElementById(name).setAttribute('class', 'shining');
+      }
+    }
+
+  }
+
 }
+
+
